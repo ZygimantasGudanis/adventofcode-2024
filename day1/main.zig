@@ -4,8 +4,7 @@ const print = std.debug.print;
 
 pub fn main() !void {
     var buffer: [1024]u8 = undefined;
-    print("Hello world\n", .{});
-    const file = try std.fs.openFileAbsolute("/home/dogekun/projects/adventofcode/day1/input.txt", .{});
+    const file = try std.fs.cwd().openFile("day1part2/input.txt", .{});
     const reader = file.reader();
     defer file.close();
 
@@ -43,4 +42,3 @@ pub fn main() !void {
 
     print("Total distance = {}\n", .{totalDistance});
 }
-

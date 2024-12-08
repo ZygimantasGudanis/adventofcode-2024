@@ -10,7 +10,7 @@ pub fn main() !void {
 }
 
 fn version1() !void {
-    const file = try std.fs.cwd().openFile("day2/input.txt", .{});
+    const file = try std.fs.cwd().openFile("day1part2/input.txt", .{});
     defer file.close();
 
     var heapAllocator = std.heap.ArenaAllocator.init(std.heap.page_allocator);
@@ -25,7 +25,7 @@ fn version1() !void {
     defer leftList.deinit();
     var rightList = std.ArrayList([]const u8).init(alloc);
     defer rightList.deinit();
-    var tokenizer = std.mem.tokenizeAny(u8, result, " \n");
+    var tokenizer = std.mem.tokenizeAny(u8, result, " \r\n");
     var isLeft = true;
     while (tokenizer.next()) |val| {
         if (isLeft) {
